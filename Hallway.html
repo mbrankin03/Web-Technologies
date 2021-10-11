@@ -1,0 +1,103 @@
+<html>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">  
+  
+    
+    <head>
+        
+        <link href ="CSS/template.css" type ="text/css"  rel="stylesheet">
+        <title>Hallway</title>
+        
+        <script src="JS/functions.js"></script>
+        <script src="JS/functionsHallway.js"></script>
+
+        <style>
+
+          .gamePlay{
+                width: 100%;
+                max-height: 100%;
+                height: 60%;
+                background-image: url(images/hall.png);
+                background-repeat: no-repeat; 
+                background-size:  100% 100%;
+                background-position: top;
+            }
+           
+            #puzzle{
+                position: absolute;
+                width: 6%;
+                height: 9%;
+                bottom: 30%;
+                left: 73%;
+            }
+            
+            .container img {
+                width: 100%;
+            }
+
+            #myImg {
+                border-radius: 5px;
+                cursor: pointer;
+                position: sticky;
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-bottom: 1px;
+                height: 80px;
+                width: 80px;
+                background-position: bottom;
+            }
+            
+        </style>
+
+    </head>
+  
+    <body onload="loadTimer(); checkTorch();">
+        <div class="row">
+            <div class="column left">
+                <span>
+                     <img class="gif" src="images/Timer.gif" alt="Sand Timer">
+                    <div class="hidden">You have <span id="timer"></span> seconds left</div>
+                </span>
+            </div>
+            
+            <div class="column middle">
+                <div class="title"></div>
+                <div class="gamePlay">
+                    <div class="click on box">
+                        <img id="puzzle" src="images/box.png" alt ="Box" usemap = "#box">
+                        <map id="box" name = "box" >
+                            <area shape = "circle" href="#" coords ="30,20,50,60" alt="box" onclick="boxClick()">
+                        </map>
+                    </div>
+
+                    <img id = arrowR src="images/arrowR.web.png" alt="Arrow to Main Room" 
+                    style="cursor: pointer; position: absolute; width: 5%; height: 10%; top: 40%; left: 75%; border:0px solid #000000" onclick="rightArrow()"/>
+                    <img id = arrowL src="images/arrowL.web.png" alt="Arrow to Web Room" 
+                    style="cursor: pointer; position: absolute; width: 5%; height: 10%; top: 40%; left: 20%; border:0px solid #000000" onclick="leftArrow()"/>
+                </div>
+                
+                <div>
+                    <img id = 'myImg' class="hidden" src="images/torch.png" style="position: absolute; width: 5%; height: 10%; top: 13.5%; left: 20.4%; border:2px solid #000000;" onclick="clickTorch()"/>
+                </div>
+                
+                <div class="text">
+                    <br>
+                    <h3>Hallway</h3>
+                    <p class="description">
+                        You've made it to this hallway. There's a strong breeze from the left...<br>
+                        However, there isn't a clear sign of where to go and what to do...<br> 
+                    </p>
+                </div>
+            </div>
+    
+            <div class="column right">
+                <div id="audioPlayer">
+                    <audio controls loop preload="auto" style=" width:90%;">
+                       <source src="SFX/RoomMusic.wav" type="audio/wav">
+                    </audio>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

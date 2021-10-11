@@ -1,0 +1,127 @@
+<html>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
+
+
+    <head>
+
+        <title>3 Doors</title>
+
+        <link href="CSS/3doors.css" rel="stylesheet" type="text/css" />
+
+        <script src="JS/Function_3Doors.js"></script>
+        <script src="JS/functions.js"></script>
+        
+        <style>
+            * {
+                background-color: transparent;
+            }
+
+            #myImg {
+                border-radius: 5px;
+                cursor: pointer;
+                position: sticky;
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-bottom: 1px;
+                height: 80px;
+                width: 80px;
+                background-position: bottom;
+            }
+            
+            .gamePlay {
+                width: 100%;
+                max-height: 100%;
+                height: 60%;
+                background-image: url(images/3Doors.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                background-position: top;
+            }
+
+            #btn-group {
+                top: 40%;
+                position: relative;
+                left: 2%;
+            }
+
+            #btn-group button {
+                padding: 10px 24px;
+                cursor: pointer;
+                float: left;
+                width: 30%;
+                margin-left: 30px;
+                border: none;
+
+            }
+
+            #btn-group:after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+
+            #btn-group button:not(:last-child) {
+                border-right: none;
+            }
+            
+             #arrowS{
+                position: absolute; 
+                width: 15%; 
+                height: 10%; top: 64.5%; 
+                left: 44%; 
+                border: none;
+                cursor: pointer;
+            }
+
+        </style>
+
+    </head>
+
+    
+    <body onload="loadTimer(), playerDetails(), check();">
+        <div class="row">
+            <div class="column left">
+
+                <span>
+                    <img class="gif" src="images/Timer.gif" alt="Sand Timer">
+                    <div class="hide">You have <span id="timer"></span> seconds</div>
+                </span>
+            </div>
+
+            <div class="column middle">
+                <div class="title"></div>
+
+                <div id="btn-group">
+                    <button onclick="gameOverScreen2();"></button>
+                    <button onclick="changeImage();"></button>
+                    <button onclick="gameOverScreen()"></button>
+                </div>
+                <div class="gamePlay">
+                    <button id="imgButton" onclick="keyButton();">
+                        <img id="myImg" src="images/Key.png">
+                    </button>
+                    <img id = arrowS src="images/arrow.png" alt ="Back to Main Room" onclick="arrow();"/>
+                </div>
+
+                <div class="text">
+                    <h3>3 Doors, 1 Key</h3>
+                    <p class="description">
+                       You have discovered this room which has 3 doors shown to you.<br> 
+                       <span id="inputName"></span>, you must choose the correct door.<br>
+                       If only there was a clue with the key holes...
+                    </p>
+                </div>
+            </div>
+
+            <div class="column right">
+                <div id="audioPlayer">
+                    <audio controls loop preload="auto" style=" width:90%;">
+                        <source src="SFX/RoomMusic.wav" type="audio/wav">
+                    </audio>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

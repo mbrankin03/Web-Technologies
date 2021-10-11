@@ -1,0 +1,64 @@
+<html>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
+
+    <head>
+        <title>Treasure Room</title>
+
+        <link href="CSS/template.css"  rel="stylesheet" type="text/css"/>
+        
+        <script src="JS/functionTreasureLevel2.js"></script>
+        <script src="JS/functions.js"></script>
+
+        <style>
+            
+            .gamePlay{
+                width: 100%;
+                max-height: 100%;
+                height: 60%;
+                background-image: url(images/startTreasure.png);
+                background-size:  100% 100%;
+                background-repeat: no-repeat; 
+                background-position: top;
+            }
+
+        </style>
+    </head>
+
+    <body onload="playerDetails(); loadTimer();" >
+        <div class="row">
+            <div class="column left">
+                <span>
+                     <img class="gif" src="images/Timer.gif" alt="Sand Timer">
+                    <div class="hidden">You have <span id="timer"></span> seconds left</div>
+                </span>
+            </div>
+
+            <div class="column middle">
+                <div class="title"></div>
+                
+                <div class="gamePlay">
+                    <img id = arrowB src="images/arrowB.png" alt ="Arrow back to Hieroglyphics Room" 
+                    style="cursor: pointer; position: absolute; width: 15%; height: 25%; top: 60%; left: 44%; border:0px solid #000000" onclick="backArrow()"/>
+                </div>
+                <div class="text">
+                    <br>
+                    <h3>Treasure Room</h3>
+                    <br>
+                    <p class="description">
+                       Does this look familiar <span id="inputName"></span>?<br>
+                       Maybe there is a clue in here that could help you...
+                    </p>
+                </div>
+            </div>
+
+            <div class="column right">
+                <div id="audioPlayer">
+                    <audio controls loop preload="auto" style=" width:90%;">
+                        <source src="SFX/RoomMusic.wav" type="audio/wav">
+                    </audio>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

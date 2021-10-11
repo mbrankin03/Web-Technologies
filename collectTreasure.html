@@ -1,0 +1,60 @@
+<html>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
+
+    <head>
+        <title>Treasure Room</title>
+
+        <link href="CSS/template.css"  rel="stylesheet" type="text/css"/>
+        
+        <script src="JS/functionTreasureLevel.js"></script>
+        <script src="JS/functions.js"></script>
+
+        <style>
+            
+            .gamePlay{
+                width: 100%;
+                max-height: 100%;
+                height: 60%;
+                background-image: url(images/startTreasure.png);
+                background-size:  100% 100%;
+                background-repeat: no-repeat; 
+                background-position: top;
+            }
+
+        </style>
+    </head>
+
+    <body onload="playerDetails(); setTimer();" >
+        <div class="row">
+            <div class="column left"></div>
+
+            <div class="column middle">
+                <div class="title"></div>
+                
+                <div class="gamePlay">
+                    <img id="treasure" src="images/statue.png" alt="treasure" style="cursor: pointer" onclick="imgDisappear();">
+                </div>
+                <div class="text">
+                    <br>
+                    <h1 style="text-align: center; text-decoration: underline;">Welcome Adventurer <span id="inputName"></span></h1>
+                    <h2 style="text-align: center;">Congratulations!</h2>
+                    <p class="description">
+                        After years of struggle, you’re finally here.<br>
+                        You have discovered the hidden treasure of the Great Pharaoh Ramesses III. <br>
+                        Click on the treasure to claim your victory!
+                    </p>
+                </div>
+            </div>
+
+            <div class="column right">
+                <div id="audioPlayer">
+                    <audio controls loop preload="auto" style=" width:90%;">
+                        <source src="SFX/RoomMusic.wav" type="audio/wav">
+                    </audio>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

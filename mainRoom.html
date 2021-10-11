@@ -1,0 +1,114 @@
+<html>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">  
+
+    <head>
+        
+        <link href ="CSS/template.css" type ="text/css"  rel="stylesheet">
+        <title>Hieroglyphics Room</title>
+
+        <script src="JS/functionMainRoomLevel.js"> </script>
+        <script src="JS/functions.js"></script>
+
+        <style>
+
+          .gamePlay{
+                width: 100%;
+                max-height: 100%;
+                height: 60%;
+                background-image: url(images/hieroglyphicsRoom.png);
+                background-repeat: no-repeat; 
+                background-size:  100% 100%;
+                background-position: top;
+            }
+            img {
+              border: 2px solid #000000;
+            }
+            #puzzle{
+                position: absolute;
+                width: 6%;
+                height: 9%;
+                bottom: 58%;
+                left: 37%;
+            }
+            .container img {
+              width: 100%;
+             }
+            #zoom-within-container img {
+              transition: transform .5s ease;
+            }
+            #zoom-within-container:hover img {
+              transform: scale(4.5);
+            }
+            .quick-img-zoom img {
+              transform-origin: 0 0;
+              transition: transform .5s, visibility .25s ease-in;
+            }
+            /* The Transformation */
+            .quick-img-zoom:hover img {
+              transform: scale(1);
+            }
+            
+        </style>
+
+    </head>
+  
+    <body onload="playerDetails(); loadTimer(); checkKey();">
+        <div class="row">
+            <div class="column left" >
+                <span>
+                    <img class="gif" src="images/Timer.gif" alt="Sand Timer">
+                    <div class="hidden">You have <span id="timer"></span> seconds left</div>
+                </span>
+            </div>
+
+            <div class="column middle">
+                <div class="title"></div>
+                
+                <div class="gamePlay">
+                    
+                   <img id = arrowR class="hidden" src="images/arrowR.web.png" alt="Arrow to 3Doors" style="cursor: pointer; position: absolute; width: 5%; height: 10%; top: 40%; left: 75%; border:0px solid #000000" onclick="rightArrow()"/>
+                    
+                    <img id = arrowL src="images/arrowL.web.png" alt="Arrow to Hallway" style="cursor: pointer; position: absolute; width: 5%; height: 10%; top: 40%; left: 20%; border:0px solid #000000" onclick="leftArrow()"/>
+                    
+                    <img id = arrowS src="images/arrowS.png" alt ="Arrow to Treasure Room" style="cursor: pointer; position: absolute; width: 15%; height: 15%; top: 54%; left: 44%; border:0px solid #000000" onclick="straightArrow()"/>
+                    
+                    <div id="zoom-within-container">
+                        
+                        <img id="puzzle" alt ="Hieroglyphic puzzle" src="images/hieroglyphicpuzzle.png" alt="Hieroglyphs" usemap="#hieromap">
+                            
+                        <map id="hieromap" name="hieromap">
+                        <area shape="square" href="#" coords="10,20,20,30" alt="Cat" onclick="showKey()">
+                        <area shape="square"  href="#" coords="30,20,50,60" alt="Eye" onclick="deathScreen()" >
+                        <area shape="square"  href="#" coords="30,20,80,60" alt="Hand" onclick="deathScreen()"> 
+                        </map>
+                
+                    </div>
+
+                    <img id = 'tempkey' class="hidden" src="images/Key.png" alt = "key" style="cursor: pointer; position: absolute; width: 5%; height: 10%; top: 60%; left: 35%; border:0px solid #000000" onclick="storeKey();"/>
+                    <img id = 'key' class="hidden" src="images/Key.png" alt = "key" style="cursor: pointer; position: absolute; width: 5%; height: 7%; top: 13.5%; left: 20.4%; border:2px solid #000000" onclick="keyButton();"/>
+                    
+                </div>
+                    
+                <div class="text">
+                    <br>
+                    <h3>Hieroglyphics Room</h3>
+                    <p class="description" id="sentence1">
+                      Paintings and symbols fill the room.<br>
+                      They are supposed to help Ramesses in the afterlife.<br>
+                      They depict scenes of him happy with his companions in the afterlife.<br>
+                      <span id="inputName"></span>, you need to look for clues to escape.<br> 
+                    </p>
+                </div>
+            </div>
+    
+            <div class="column right">
+              <div id="audioPlayer">
+                  <audio controls loop preload="auto" style=" width:90%;">
+                      <source src="SFX/RoomMusic.wav" type="audio/wav">
+                  </audio>
+              </div>
+          </div>
+        </div>
+    </body>
+</html>
